@@ -19,6 +19,7 @@ function genId() {
   return count.toString();
 }
 
+// eslint-disable-next-line no-undef
 const toastTimeouts = new Map()
 
 const addToRemoveQueue = (toastId) => {
