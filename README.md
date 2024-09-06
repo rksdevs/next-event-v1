@@ -1,7 +1,7 @@
 # Events App - Track your events at your fingertips - Next Js Version
 
 This is an app where you can create multiple events, customize them as recurring events based on your needs. You can see the preview of the events you created immediately. Built on Next Js
-Application is live at: 
+Application is live at: [https://next-event-v1-rmjz.vercel.app/](url)
 
 ## Features
 
