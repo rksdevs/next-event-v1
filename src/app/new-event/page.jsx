@@ -137,6 +137,13 @@ const NewEvent = () => {
     };
     console.log(payload);
     dispatch(addNewEvent(payload));
+    const storedEvents = localStorage.getItem("eventsState")
+      ? JSON.parse(localStorage.getItem("eventsState"))
+      : [];
+    localStorage.setItem(
+      "eventsState",
+      JSON.stringify([...storedEvents, payload])
+    );
     setEventName("");
     setEventType("");
     setFrequency("");

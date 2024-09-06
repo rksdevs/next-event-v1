@@ -18,7 +18,7 @@ import {
 } from "./ui/card";
 import { Calendar } from "./ui/calendar";
 import noEventsImg from "./assets/images/no-events-2.png";
-import { addNewEvent } from "@/Features/eventSlice";
+import { setEvents } from "@/Features/eventSlice";
 
 const Preview = () => {
   const { events } = useSelector((state) => state.eventsState);
@@ -31,25 +31,12 @@ const Preview = () => {
     return newStr;
   };
 
-  // Load events from localStorage when the component mounts
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const storedEvents = localStorage.getItem("eventsState")
-        ? JSON.parse(localStorage.getItem("eventsState")).events
-        : [];
-
-      storedEvents.forEach((event) => {
-        dispatch(addNewEvent(event)); // Dispatch events to Redux store
-      });
-    }
+    // Load events from localStorage on the client side
+    const eventsFromStorage =
+      JSON.parse(localStorage.getItem("eventsState")) || [];
+    dispatch(setEvents(eventsFromStorage));
   }, [dispatch]);
-
-  // Save events to localStorage whenever the events state changes
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("eventsState", JSON.stringify({ events }));
-    }
-  }, [events]);
 
   useEffect(() => {
     if (!carouselApi) {
