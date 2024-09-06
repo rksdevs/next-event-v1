@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Calendar } from "./ui/calendar";
-import { useToast } from "../hooks/use-toast";
 
 const DatePickerComponent = ({
   date,
@@ -14,8 +13,6 @@ const DatePickerComponent = ({
   intervalType,
   intervalValue,
 }) => {
-  const { toast } = useToast();
-
   useEffect(() => {
     let optionsToPass = {
       daysArray: daysOfWeek,

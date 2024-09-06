@@ -68,7 +68,6 @@ const NewEvent = () => {
   const [openDialogOne, setOpenDialogOne] = useState(false);
   const [openDialogTwo, setOpenDialogTwo] = useState(false);
   const [openDialogThree, setOpenDialogThree] = useState(false);
-  const [disableCreateEvent, setDisableCreateEvent] = useState(false);
 
   const weekDays = [
     {
@@ -579,9 +578,7 @@ const NewEvent = () => {
                       </PopoverContent>
                     </Popover>
                   </div>
-                  <Button type="submit" disabled={disableCreateEvent}>
-                    Create Event
-                  </Button>
+                  <Button type="submit">Create Event</Button>
                 </form>
               </div>
             </CardContent>
